@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CCIT - AL-Siddiq ASBL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ivory: #f5f3e5;
+      --deep-green: #004d33;
+      --gold: #d4af37;
+      --rich-brown: #4a2c2a;
+      --deep-red: #9e2a2f;
+      --text-dark: #2f2f2f;
+      --shadow-light: rgba(0, 0, 0, 0.1);
+      --shadow-dark: rgba(0, 0, 0, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--ivory);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--deep-green);
+      color: white;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 3px solid var(--gold);
+      border-radius: 15px;
+      box-shadow: 0 4px 12px var(--shadow-light);
+    }
+
+    header h1 {
+      font-family: 'Cairo', sans-serif;
+      font-size: 2.3rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    .nav-links ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .nav-links li {
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      background-color: var(--gold);
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      text-transform: uppercase;
+      box-shadow: 0 4px 10px var(--shadow-light);
+      text-align: center;
+    }
+
+    .nav-links li:hover {
+      background-color: var(--deep-green);
+      box-shadow: 0 4px 12px var(--shadow-dark);
+      transform: scale(1.05);
+    }
+
+    .nav-links li:active {
+      transform: scale(1.02);
+      box-shadow: none;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      border-radius: 15px;
+      background: linear-gradient(145deg, var(--ivory), #f0e8d0);
+      box-shadow: 0 4px 16px var(--shadow-light);
+    }
+
+    section {
+      margin-top: 3rem;
+      padding: 2rem;
+      background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
+      background-color: rgba(245, 243, 229, 0.8);
+      box-shadow: 0 4px 8px var(--shadow-light);
+      border-radius: 15px;
+    }
+
+    .hero {
+      background: url("https://www.transparenttextures.com/patterns/arabesque.png");
+      padding: 4rem 1.5rem;
+      text-align: center;
+      border-radius: 20px;
+      background-color: var(--ivory);
+      box-shadow: 0 4px 12px var(--shadow-light);
+    }
+
+    .hero h2 {
+      font-size: 2.4rem;
+      color: var(--deep-green);
+      font-family: 'Cairo', sans-serif;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      text-shadow: 2px 2px var(--gold);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #555;
+      font-style: italic;
+    }
+
+    .section h3 {
+      color: var(--deep-green);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      font-family: 'Cairo', sans-serif;
+      text-transform: uppercase;
+      text-shadow: 2px 2px var(--gold);
+    }
+
+    .donate-btn {
+      display: inline-block;
+      background: linear-gradient(145deg, var(--gold), #e6bc45);
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px var(--shadow-light);
+      margin-top: 1.5rem;
+    }
+
+    .donate-btn:hover {
+      background: linear-gradient(145deg, #e6bc45, var(--gold));
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px var(--shadow-dark);
+    }
+
+    footer {
+      background-color: var(--deep-green);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px var(--shadow-light);
+    }
+
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 0.4rem;
+    }
+
+    .lang-switcher {
+      background-color: var(--gold);
+      padding: 10px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .lang-switcher:hover {
+      transform: scale(1.1);
+    }
+
+    .lang-en, .lang-fr {
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      .nav-links ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+      }
+
+      .nav-links li {
+        margin: 0.5rem 0;
+        background-color: var(--deep-green);
+        color: white;
+        border-radius: 50px;
+        padding: 1rem;
+        text-align: center;
+        box-shadow: 0 4px 10px var(--shadow-light);
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .nav-links li:hover {
+        background-color: var(--gold);
+        transform: scale(1.03);
+        color: var(--text-dark);
+      }
+
+      .nav-active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CCIT - AL-Siddiq ASBL</h1>
+    <div class="lang-switcher">
+      <span onclick="toggleLanguage('fr')">FR</span> |
+      <span onclick="toggleLanguage('en')">EN</span>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <nav class="nav-links">
+    <ul>
+      <li onclick="scrollToSection('home')"><span class="lang-en active">Home</span><span class="lang-fr">Accueil</span></li>
+      <li onclick="scrollToSection('about')"><span class="lang-en active">About</span><span class="lang-fr">À propos</span></li>
+      <li onclick="scrollToSection('prayer-times')"><span class="lang-en active">Prayer Times</span><span class="lang-fr">Horaires de prière</span></li>
+      <li onclick="scrollToSection('events')"><span class="lang-en active">Events</span><span class="lang-fr">Événements</span></li>
+      <li onclick="scrollToSection('gallery')"><span class="lang-en active">Gallery</span><span class="lang-fr">Galerie</span></li>
+      <li onclick="scrollToSection('donate')"><span class="lang-en active">Donate</span><span class="lang-fr">Faire un don</span></li>
+      <li onclick="scrollToSection('contact')"><span class="lang-en active">Contact</span><span class="lang-fr">Contact</span></li>
+      <li onclick="scrollToSection('location')"><span class="lang-en active">Location</span><span class="lang-fr">Emplacement</span></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="home" class="hero">
+      <h2 class="lang-en active">Welcome to CCIT - AL-Siddiq Mosque</h2>
+      <h2 class="lang-fr">Bienvenue au CCIT - Mosquée AL-Siddiq</h2>
+      <p class="lang-en active">A spiritual home in Troisvierges for faith, learning, and unity.</p>
+      <p class="lang-fr">Une maison spirituelle à Troisvierges pour la foi, l'apprentissage et l'unité.</p>
+    </section>
+
+    <section id="about" class="section">
+      <h3 class="lang-en active">About Us</h3>
+      <h3 class="lang-fr">À propos de nous</h3>
+      <p class="lang-en active">We are a welcoming Islamic center focused on prayer, community, and education for all ages.</p>
+      <p class="lang-fr">Nous sommes un centre islamique accueillant axé sur la prière, la communauté et l'éducation pour tous les âges.</p>
+    </section>
+
+    <section id="prayer-times" class="section">
+      <h3 class="lang-en active">Prayer Times</h3>
+      <h3 class="lang-fr">Horaires de prière</h3>
+      <p class="lang-en active">Prayer times will be available here soon, inshaAllah.</p>
+      <p class="lang-fr">Les horaires de prière seront bientôt disponibles ici, inshaAllah.</p>
+    </section>
+
+    <section id="events" class="section">
+      <h3 class="lang-en active">Events</h3>
+      <h3 class="lang-fr">Événements</h3>
+      <p class="lang-en active">Stay tuned for our upcoming events.</p>
+      <p class="lang-fr">Restez à l'écoute pour nos événements à venir.</p>
+    </section>
+
+    <section id="gallery" class="section">
+      <h3 class="lang-en active">Gallery</h3>
+      <h3 class="lang-fr">Galerie</h3>
+      <p class="lang-en active">View our photo gallery showcasing community events and activities.</p>
+      <p class="lang-fr">Consultez notre galerie photo présentant des événements et des activités communautaires.</p>
+    </section>
+
+    <section id="donate" class="section">
+      <h3 class="lang-en active">Support Our Mosque</h3>
+      <h3 class="lang-fr">Soutenez notre Mosquée</h3>
+      <a href="https://paypal.me/MosqueAlSiddiq" class="donate-btn" target="_blank">Donate via PayPal</a>
+    </section>
+
+    <section id="contact" class="section">
+      <h3 class="lang-en active">Contact</h3>
+      <h3 class="lang-fr">Contact</h3>
+      <p class="lang-en active">If you have any questions, feel free to get in touch with us.</p>
+      <p class="lang-fr">Si vous avez des questions, n'hésitez pas à nous contacter.</p>
+    </section>
+
+   <section id="location" class="section">
+  <h3 class="lang-en active">Location</h3>
+  <h3 class="lang-fr">Emplacement</h3>
+  <p class="lang-en active">13 Grand Rue, Troisvierges, 9905, Luxembourg</p>
+  <p class="lang-fr">13 Grand Rue, Troisvierges, 9905, Luxembourg</p>
+
+  <div style="margin-top: 1.5rem; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 12px var(--shadow-light);">
+    <!-- Embed the custom Google Maps iframe -->
+    <iframe
+      src="https://www.google.com/maps/d/embed?mid=1VByi0wJ_Vj1dSRZcCelZ3-OcRXOl6TQ&ehbc=2E312F"
+      width="100%"
+      height="300"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <span class="lang-en active">Follow us on</span>
+      <span class="lang-fr">Suivez-nous sur</span>
+      <a href="https://www.instagram.com/centre_islamique_troisvierges/" target="_blank">Instagram</a>
+    </p>
+    <p>&copy; 2025 CCIT - AL-Siddiq ASBL</p>
+  </footer>
+
+  <script>
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      window.scrollTo({
+        top: section.offsetTop - 100,
+        behavior: "smooth",
+      });
+    }
+
+    function toggleLanguage(language) {
+      const langEn = document.querySelectorAll('.lang-en');
+      const langFr = document.querySelectorAll('.lang-fr');
+
+      if (language === 'fr') {
+        langEn.forEach(element => element.classList.remove('active'));
+        langFr.forEach(element => element.classList.add('active'));
+      } else {
+        langEn.forEach(element => element.classList.add('active'));
+        langFr.forEach(element => element.classList.remove('active'));
+      }
+    }
+
+    function toggleMenu() {
+      const nav = document.querySelector('.nav-links');
+      nav.classList.toggle('nav-active');
+    }
+  </script>
+</body>
+</html>
+
